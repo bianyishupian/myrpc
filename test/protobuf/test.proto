@@ -1,0 +1,49 @@
+syntax = "proto3";
+package testprotobuf;
+
+message ResultCode
+{
+    int32 errorno = 1;
+    string errormsg = 2;
+}
+
+message LoginRequest
+{
+    string name = 1;
+    string pwd = 2;
+}
+message RegRequest
+{
+    string name = 1;
+    string pwd = 2;
+    int32 age = 3;
+    enum SEX
+    {
+        MAN = 0;
+        WOMAN = 1;
+    }
+    SEX sex = 4;
+    string phone = 5;
+}
+message Response
+{
+    ResultCode result = 1;
+    bool success = 2;
+}
+
+message User
+{
+    bytes name = 1;
+    uint32 age = 2;
+    enum SEX
+    {
+        MAN = 0;
+        WOMAN = 1;
+    }
+    SEX sex = 3;
+}
+message GetFriendListResponse
+{
+    ResultCode result = 1;
+    repeated User friendList = 2;
+}
