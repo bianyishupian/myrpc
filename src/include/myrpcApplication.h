@@ -7,6 +7,7 @@ class MyrpcApplication
 public:
     static void Init(int argc, char **argv);
     static MyrpcApplication &GetInstance();
+    static RpcConfig &GetConfig();
 
 private:
     MyrpcApplication() {}

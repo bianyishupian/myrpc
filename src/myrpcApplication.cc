@@ -42,3 +42,8 @@ MyrpcApplication &MyrpcApplication::GetInstance()
     static MyrpcApplication app;
     return app;
 }
+
+RpcConfig &MyrpcApplication::GetConfig()
+{
+    return config_;
+}
