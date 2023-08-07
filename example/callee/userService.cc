@@ -42,7 +42,7 @@ private:
 
 int main(int argc, char **argv)
 {
-    myrpcApplication::Init(argc, argv);
+    MyrpcApplication::Init(argc, argv);
 
     RpcProvider provider;
     provider.NotifyService(new UserService());
