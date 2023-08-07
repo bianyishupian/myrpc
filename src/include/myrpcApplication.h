@@ -1,13 +1,17 @@
 #pragma once
 
-class myrpcApplication
+#include "rpcConfig.h"
+
+class MyrpcApplication
 {
 public:
     static void Init(int argc, char **argv);
-    static myrpcApplication &GetInstance();
+    static MyrpcApplication &GetInstance();
 
 private:
-    myrpcApplication() {}
-    myrpcApplication(const myrpcApplication &) = delete;
-    myrpcApplication(myrpcApplication &&) = delete;
+    MyrpcApplication() {}
+    MyrpcApplication(const MyrpcApplication &) = delete;
+    MyrpcApplication(MyrpcApplication &&) = delete;
+
+    static RpcConfig config_;
 };
