@@ -58,7 +58,7 @@ void RpcProvider::onMessage(const TcpConnectionPtr &conn, Buffer *buffer, Timest
     recv_buf.copy((char *)&header_size, 4, 0);
 
     std::string header_str = recv_buf.substr(4, header_size);
-    myrpc::rpcheader rpc_header;
+    myRPC::rpcheader rpc_header;
     std::string service_name;
     std::string method_name;
     uint32_t args_size;
