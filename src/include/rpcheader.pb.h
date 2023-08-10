@@ -54,20 +54,20 @@ struct TableStruct_rpcheader_2eproto {
   static const ::PROTOBUF_NAMESPACE_ID::uint32 offsets[];
 };
 extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_rpcheader_2eproto;
-namespace myrpc {
+namespace myRPC {
 class rpcheader;
 class rpcheaderDefaultTypeInternal;
 extern rpcheaderDefaultTypeInternal _rpcheader_default_instance_;
-}  // namespace myrpc
+}  // namespace myRPC
 PROTOBUF_NAMESPACE_OPEN
-template<> ::myrpc::rpcheader* Arena::CreateMaybeMessage<::myrpc::rpcheader>(Arena*);
+template<> ::myRPC::rpcheader* Arena::CreateMaybeMessage<::myRPC::rpcheader>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
-namespace myrpc {
+namespace myRPC {
 
 // ===================================================================
 
 class rpcheader :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:myrpc.rpcheader) */ {
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:myRPC.rpcheader) */ {
  public:
   rpcheader();
   virtual ~rpcheader();
@@ -147,7 +147,7 @@ class rpcheader :
   void InternalSwap(rpcheader* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "myrpc.rpcheader";
+    return "myRPC.rpcheader";
   }
   private:
   inline ::PROTOBUF_NAMESPACE_ID::Arena* GetArenaNoVirtual() const {
@@ -217,7 +217,7 @@ class rpcheader :
   void _internal_set_args_size(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // @@protoc_insertion_point(class_scope:myrpc.rpcheader)
+  // @@protoc_insertion_point(class_scope:myRPC.rpcheader)
  private:
   class _Internal;
 
@@ -244,15 +244,15 @@ inline void rpcheader::clear_service_name() {
   service_name_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 inline const std::string& rpcheader::service_name() const {
-  // @@protoc_insertion_point(field_get:myrpc.rpcheader.service_name)
+  // @@protoc_insertion_point(field_get:myRPC.rpcheader.service_name)
   return _internal_service_name();
 }
 inline void rpcheader::set_service_name(const std::string& value) {
   _internal_set_service_name(value);
-  // @@protoc_insertion_point(field_set:myrpc.rpcheader.service_name)
+  // @@protoc_insertion_point(field_set:myRPC.rpcheader.service_name)
 }
 inline std::string* rpcheader::mutable_service_name() {
-  // @@protoc_insertion_point(field_mutable:myrpc.rpcheader.service_name)
+  // @@protoc_insertion_point(field_mutable:myRPC.rpcheader.service_name)
   return _internal_mutable_service_name();
 }
 inline const std::string& rpcheader::_internal_service_name() const {
@@ -266,26 +266,26 @@ inline void rpcheader::set_service_name(std::string&& value) {
   
   service_name_.SetNoArena(
     &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:myrpc.rpcheader.service_name)
+  // @@protoc_insertion_point(field_set_rvalue:myRPC.rpcheader.service_name)
 }
 inline void rpcheader::set_service_name(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
   service_name_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:myrpc.rpcheader.service_name)
+  // @@protoc_insertion_point(field_set_char:myRPC.rpcheader.service_name)
 }
 inline void rpcheader::set_service_name(const void* value, size_t size) {
   
   service_name_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:myrpc.rpcheader.service_name)
+  // @@protoc_insertion_point(field_set_pointer:myRPC.rpcheader.service_name)
 }
 inline std::string* rpcheader::_internal_mutable_service_name() {
   
   return service_name_.MutableNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 inline std::string* rpcheader::release_service_name() {
-  // @@protoc_insertion_point(field_release:myrpc.rpcheader.service_name)
+  // @@protoc_insertion_point(field_release:myRPC.rpcheader.service_name)
   
   return service_name_.ReleaseNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
@@ -296,7 +296,7 @@ inline void rpcheader::set_allocated_service_name(std::string* service_name) {
     
   }
   service_name_.SetAllocatedNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), service_name);
-  // @@protoc_insertion_point(field_set_allocated:myrpc.rpcheader.service_name)
+  // @@protoc_insertion_point(field_set_allocated:myRPC.rpcheader.service_name)
 }
 
 // bytes method_name = 2;
@@ -304,15 +304,15 @@ inline void rpcheader::clear_method_name() {
   method_name_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 inline const std::string& rpcheader::method_name() const {
-  // @@protoc_insertion_point(field_get:myrpc.rpcheader.method_name)
+  // @@protoc_insertion_point(field_get:myRPC.rpcheader.method_name)
   return _internal_method_name();
 }
 inline void rpcheader::set_method_name(const std::string& value) {
   _internal_set_method_name(value);
-  // @@protoc_insertion_point(field_set:myrpc.rpcheader.method_name)
+  // @@protoc_insertion_point(field_set:myRPC.rpcheader.method_name)
 }
 inline std::string* rpcheader::mutable_method_name() {
-  // @@protoc_insertion_point(field_mutable:myrpc.rpcheader.method_name)
+  // @@protoc_insertion_point(field_mutable:myRPC.rpcheader.method_name)
   return _internal_mutable_method_name();
 }
 inline const std::string& rpcheader::_internal_method_name() const {
@@ -326,26 +326,26 @@ inline void rpcheader::set_method_name(std::string&& value) {
   
   method_name_.SetNoArena(
     &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:myrpc.rpcheader.method_name)
+  // @@protoc_insertion_point(field_set_rvalue:myRPC.rpcheader.method_name)
 }
 inline void rpcheader::set_method_name(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
   method_name_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:myrpc.rpcheader.method_name)
+  // @@protoc_insertion_point(field_set_char:myRPC.rpcheader.method_name)
 }
 inline void rpcheader::set_method_name(const void* value, size_t size) {
   
   method_name_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:myrpc.rpcheader.method_name)
+  // @@protoc_insertion_point(field_set_pointer:myRPC.rpcheader.method_name)
 }
 inline std::string* rpcheader::_internal_mutable_method_name() {
   
   return method_name_.MutableNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 inline std::string* rpcheader::release_method_name() {
-  // @@protoc_insertion_point(field_release:myrpc.rpcheader.method_name)
+  // @@protoc_insertion_point(field_release:myRPC.rpcheader.method_name)
   
   return method_name_.ReleaseNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
@@ -356,7 +356,7 @@ inline void rpcheader::set_allocated_method_name(std::string* method_name) {
     
   }
   method_name_.SetAllocatedNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), method_name);
-  // @@protoc_insertion_point(field_set_allocated:myrpc.rpcheader.method_name)
+  // @@protoc_insertion_point(field_set_allocated:myRPC.rpcheader.method_name)
 }
 
 // uint32 args_size = 3;
@@ -367,7 +367,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 rpcheader::_internal_args_size() const {
   return args_size_;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 rpcheader::args_size() const {
-  // @@protoc_insertion_point(field_get:myrpc.rpcheader.args_size)
+  // @@protoc_insertion_point(field_get:myRPC.rpcheader.args_size)
   return _internal_args_size();
 }
 inline void rpcheader::_internal_set_args_size(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -376,7 +376,7 @@ inline void rpcheader::_internal_set_args_size(::PROTOBUF_NAMESPACE_ID::uint32 v
 }
 inline void rpcheader::set_args_size(::PROTOBUF_NAMESPACE_ID::uint32 value) {
   _internal_set_args_size(value);
-  // @@protoc_insertion_point(field_set:myrpc.rpcheader.args_size)
+  // @@protoc_insertion_point(field_set:myRPC.rpcheader.args_size)
 }
 
 #ifdef __GNUC__
@@ -385,7 +385,7 @@ inline void rpcheader::set_args_size(::PROTOBUF_NAMESPACE_ID::uint32 value) {
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace myrpc
+}  // namespace myRPC
 
 // @@protoc_insertion_point(global_scope)
 
