@@ -8,7 +8,7 @@
 
 #include "rpcChannel.h"
 #include "rpcheader.pb.h"
-#include "myrpcApplication.h"
+#include "rpcApplication.h"
 
 void MyrpcChannel::CallMethod(const google::protobuf::MethodDescriptor *method,
                               google::protobuf::RpcController *controller,
