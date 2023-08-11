@@ -1,0 +1,76 @@
+20:43:44 =>[info] EventLoop created 0x7ffcd8aa7180 in thread 32153
+20:43:44 =>[info] func=updateChannel => fd=4 events=3 index=-1
+20:43:44 =>[info] service_name:UserServiceRpc
+20:43:44 =>[info] method_name:Login
+20:43:44 =>[info] method_name:Register
+20:43:44 =>[info] EventLoop created 0x7fdfa69fcb50 in thread 32156
+20:43:44 =>[info] func=updateChannel => fd=9 events=3 index=-1
+20:43:44 =>[info] EventLoop 0x7fdfa69fcb50 start looping
+20:43:44 =>[info] func=poll => fd total count:1
+20:43:44 =>[info] EventLoop created 0x7fdfa61fbb50 in thread 32157
+20:43:44 =>[info] func=updateChannel => fd=5 events=3 index=-1
+20:43:44 =>[info] EventLoop 0x7fdfa61fbb50 start looping
+20:43:44 =>[info] func=poll => fd total count:1
+20:43:44 =>[info] EventLoop created 0x7fdfa59fab50 in thread 32158
+20:43:44 =>[info] func=updateChannel => fd=13 events=3 index=-1
+20:43:44 =>[info] EventLoop 0x7fdfa59fab50 start looping
+20:43:44 =>[info] func=poll => fd total count:1
+20:43:44 =>[info] EventLoop created 0x7fdfa51f9b50 in thread 32159
+20:43:44 =>[info] func=updateChannel => fd=15 events=3 index=-1
+20:43:44 =>[info] func=updateChannel => fd=6 events=3 index=-1
+20:43:44 =>[info] EventLoop 0x7ffcd8aa7180 start looping
+20:43:44 =>[info] func=poll => fd total count:2
+20:43:44 =>[info] EventLoop 0x7fdfa51f9b50 start looping
+20:43:44 =>[info] func=poll => fd total count:1
+20:43:44 =>[info] 1 events happend
+20:43:47 =>[info] channel handleEvent revents:1
+20:43:47 =>[info] TcpServer::newConnection [RpcProvider] - new connection [RpcProvider-127.0.0.1:10000#1] from 127.0.0.1:37892
+20:43:47 =>[info] TcpConnection::ctor[RpcProvider-127.0.0.1:10000#1] at fd=16
+20:43:47 =>[info] func=poll => fd total count:2
+20:43:47 =>[info] 1 events happend
+20:43:47 =>[info] channel handleEvent revents:1
+20:43:47 =>[info] func=updateChannel => fd=16 events=3 index=-1
+20:43:47 =>[info] func=poll => fd total count:2
+20:43:47 =>[info] 1 events happend
+20:43:47 =>[info] channel handleEvent revents:1
+20:43:47 =>[info] func=poll => fd total count:2
+20:43:47 =>[info] 1 events happend
+20:43:47 =>[info] channel handleEvent revents:17
+20:43:47 =>[info] TcpConnection::handleClose fd=16 state=3
+20:43:47 =>[info] func=updateChannel => fd=16 events=0 index=1
+20:43:47 =>[info] func=poll => fd total count:2
+20:43:47 =>[info] 1 events happend
+20:43:47 =>[info] channel handleEvent revents:1
+20:43:47 =>[info] TcpServer::removeConnectionInLoop [RpcProvider] - connection RpcProvider-127.0.0.1:10000#1
+20:43:47 =>[info] func=poll => fd total count:2
+20:43:47 =>[info] 1 events happend
+20:43:47 =>[info] channel handleEvent revents:1
+20:43:47 =>[info] func=removeChannel => fd=16
+20:43:47 =>[info] TcpConnection::dtor[RpcProvider-127.0.0.1:10000#1] at fd=16 state=0
+20:43:47 =>[info] func=poll => fd total count:1
+20:43:47 =>[info] 1 events happend
+20:43:47 =>[info] channel handleEvent revents:1
+20:43:47 =>[info] TcpServer::newConnection [RpcProvider] - new connection [RpcProvider-127.0.0.1:10000#2] from 127.0.0.1:37900
+20:43:47 =>[info] TcpConnection::ctor[RpcProvider-127.0.0.1:10000#2] at fd=16
+20:43:47 =>[info] func=poll => fd total count:2
+20:43:47 =>[info] 1 events happend
+20:43:47 =>[info] channel handleEvent revents:1
+20:43:47 =>[info] func=updateChannel => fd=16 events=3 index=-1
+20:43:47 =>[info] func=poll => fd total count:2
+20:43:47 =>[info] 1 events happend
+20:43:47 =>[info] channel handleEvent revents:1
+20:43:47 =>[info] func=poll => fd total count:2
+20:43:47 =>[info] 1 events happend
+20:43:47 =>[info] channel handleEvent revents:17
+20:43:47 =>[info] TcpConnection::handleClose fd=16 state=3
+20:43:47 =>[info] func=updateChannel => fd=16 events=0 index=1
+20:43:47 =>[info] func=poll => fd total count:2
+20:43:47 =>[info] 1 events happend
+20:43:47 =>[info] channel handleEvent revents:1
+20:43:47 =>[info] TcpServer::removeConnectionInLoop [RpcProvider] - connection RpcProvider-127.0.0.1:10000#2
+20:43:47 =>[info] func=poll => fd total count:2
+20:43:47 =>[info] 1 events happend
+20:43:47 =>[info] channel handleEvent revents:1
+20:43:47 =>[info] func=removeChannel => fd=16
+20:43:47 =>[info] TcpConnection::dtor[RpcProvider-127.0.0.1:10000#2] at fd=16 state=0
+20:43:47 =>[info] func=poll => fd total count:1
