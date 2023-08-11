@@ -9,6 +9,7 @@
 #include "rpcChannel.h"
 #include "rpcheader.pb.h"
 #include "rpcApplication.h"
+#include "rpcController.h"
 
 void MyrpcChannel::CallMethod(const google::protobuf::MethodDescriptor *method,
                               google::protobuf::RpcController *controller,
@@ -29,7 +30,7 @@ void MyrpcChannel::CallMethod(const google::protobuf::MethodDescriptor *method,
     }
     else
     {
-        std::cout << "request serialize error!" << std::endl;
+        controller->SetFailed("request serialize error!");
         return;
     }
 
@@ -47,7 +48,7 @@ void MyrpcChannel::CallMethod(const google::protobuf::MethodDescriptor *method,
     }
     else
     {
-        std::cout << "rpcHeader serialize error!" << std::endl;
+        controller->SetFailed("rpcHeader serialize error!");
         return;
     }
 
@@ -69,8 +70,10 @@ void MyrpcChannel::CallMethod(const google::protobuf::MethodDescriptor *method,
     int clientfd = socket(AF_INET, SOCK_STREAM, 0);
     if(-1 == clientfd)
     {
-        std::cout << "create socket error! errno:" << errno << std::endl;
-        exit(EXIT_FAILURE);
+        char errtest[512] = {0};
+        sprintf(errtest, "create socket error! errno:%d", errno);
+        controller->SetFailed(errtest);
+        return;
     }
 
     std::string ip = MyrpcApplication::GetInstance().GetConfig().load("rpcserverip");
@@ -85,13 +88,17 @@ void MyrpcChannel::CallMethod(const google::protobuf::MethodDescriptor *method,
     if(-1 == connect(clientfd, (struct sockaddr *)&server_addr, sizeof(server_addr)))
     {
         close(clientfd);
-        std::cout << "connect socket error! errno:" << errno << std::endl;
-        exit(EXIT_FAILURE);
+        char errtest[512] = {0};
+        sprintf(errtest, "connect socket error! errno:%d", errno);
+        controller->SetFailed(errtest);
+        return;
     }
     // send
     if(-1 == send(clientfd, send_str.c_str(), send_str.size(), 0))
     {
-        std::cout << "send socket error! errno:" << errno << std::endl;
+        char errtest[512] = {0};
+        sprintf(errtest, "send socket error! errno:%d", errno);
+        controller->SetFailed(errtest);
         close(clientfd);
         return;
     }
@@ -100,7 +107,9 @@ void MyrpcChannel::CallMethod(const google::protobuf::MethodDescriptor *method,
     int recv_size = 0;
     if(-1 == (recv_size = recv(clientfd, recv_buf, 1024, 0)))
     {
-        std::cout << "recv socket error! errno:" << errno << std::endl;
+        char errtest[512] = {0};
+        sprintf(errtest, "recv socket error! errno:%d", errno);
+        controller->SetFailed(errtest);
         close(clientfd);
         return;
     }
@@ -109,7 +118,9 @@ void MyrpcChannel::CallMethod(const google::protobuf::MethodDescriptor *method,
     // if(!response->ParseFromString(response_str)) 会出现问题，string遇到\0就结束了
     if(!response->ParseFromArray(recv_buf, recv_size))
     {
-        std::cout << "parse error! recv_buf:" << recv_buf << std::endl;
+        char errtest[512] = {0};
+        sprintf(errtest, "parse error! errno:%d", errno);
+        controller->SetFailed(errtest);
         close(clientfd);
         return;
     }
