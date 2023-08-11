@@ -11,12 +11,12 @@ public:
     {
         std::cout << "doing local service: login" << std::endl;
         std::cout << "name:" << name << " pwd:" << pwd << std::endl;
-        return false;
+        return true;
     }
     bool Register(uint32_t id, std::string name, std::string pwd)
     {
         std::cout << "doing local service: Register" << std::endl;
-        std::cout << "id:" << id << "name:" << name << " pwd:" << pwd << std::endl;
+        std::cout << "id:" << id << " name:" << name << " pwd:" << pwd << std::endl;
         return true;
     }
     void Login(::google::protobuf::RpcController *controller,
@@ -36,8 +36,24 @@ public:
 
         done->Run();
     }
+    void Register(::google::protobuf::RpcController *controller,
+                  const ::myRPC::RegisterRequest *request,
+                  ::myRPC::RegisterResponse *response,
+                  ::google::protobuf::Closure *done)
+    {
+        uint32_t id = request->id();
+        std::string name = request->name();
+        std::string pwd = request->pwd();
 
-private:
+        bool ret = Register(id, name, pwd);
+
+        response->mutable_result()->set_errcode(0);
+        response->mutable_result()->set_errmsg("");
+        response->set_success(ret);
+
+        done->Run();
+    }
+
 };
 
 int main(int argc, char **argv)
