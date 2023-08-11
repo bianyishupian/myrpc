@@ -1,5 +1,5 @@
 set(SRC_LIST callerUserService.cc ../user.pb.cc)
-set(SRC_LIST_2 callerFriendService.cc ../user.pb.cc)
+set(SRC_LIST_2 callerFriendService.cc ../friend.pb.cc)
 
 add_executable(consumer ${SRC_LIST})
 add_executable(consumer2 ${SRC_LIST_2})
