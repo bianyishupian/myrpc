@@ -16,14 +16,22 @@ int main(int argc, char **argv)
     // rpc method响应
     myRPC::LoginResponse response;
     // 发起rpc方法的调用 实际上是调用了channel的CallMethod函数 是同步的
-    stub.Login(nullptr, &request, &response, nullptr);
-    if (0 == response.result().errcode())
+    MyrpcController controller;
+    stub.Login(&controller, &request, &response, nullptr);
+    if (controller.Failed())
     {
-        std::cout << "rpc login response success:" << response.success() << std::endl;
+        std::cout << controller.ErrorText() << std::endl;
     }
     else
     {
-        std::cout << "rpc login response error : " << response.result().errmsg() << std::endl;
+        if (0 == response.result().errcode())
+        {
+            std::cout << "rpc login response success:" << response.success() << std::endl;
+        }
+        else
+        {
+            std::cout << "rpc login response error : " << response.result().errmsg() << std::endl;
+        }
     }
 
     myRPC::RegisterRequest registerReq;
@@ -32,7 +40,6 @@ int main(int argc, char **argv)
     registerReq.set_pwd("123456789");
     myRPC::RegisterResponse registerResp;
 
-    MyrpcController controller;
     stub.Register(&controller, &registerReq, &registerResp, nullptr);
     if (controller.Failed())
     {
