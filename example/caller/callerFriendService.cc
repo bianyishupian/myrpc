@@ -3,9 +3,15 @@
 #include "friend.pb.h"
 #include "rpcChannel.h"
 #include "rpcController.h"
+#include "logger.h"
 
 int main(int argc, char **argv)
 {
+
+    // // test logger
+    // LOG_INFO("-----test-----");
+    // LOG_ERROR("%s:%s:%d", __FILE__,__FUNCTION__,__LINE__);
+
     MyrpcApplication::Init(argc, argv);
 
     myRPC::FriendServiceRpc_Stub stub(new MyrpcChannel());
