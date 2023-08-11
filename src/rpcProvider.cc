@@ -1,8 +1,7 @@
-#include <mymuduo11/base/logger.h>
-
 #include "rpcProvider.h"
 #include "rpcApplication.h"
 #include "rpcheader.pb.h"
+#include "logger.h"
 
 // 这里是框架提供给外部使用的，可以发布rpc方法的函数接口
 void RpcProvider::NotifyService(google::protobuf::Service *service)
@@ -72,7 +71,8 @@ void RpcProvider::onMessage(const TcpConnectionPtr &conn, Buffer *buffer, Timest
     else
     {
         // 反序列化失败
-        LOG_ERROR("header_str: %s parse error!\n", header_str.c_str());
+        LOG_ERROR("%s:%s:%d", __FILE__,__FUNCTION__,__LINE__);
+        LOG_ERROR("header_str: %s parse error!", header_str.c_str());
         return;
     }
 
@@ -90,14 +90,16 @@ void RpcProvider::onMessage(const TcpConnectionPtr &conn, Buffer *buffer, Timest
     auto it = serviceMap_.find(service_name);
     if (it == serviceMap_.end())
     {
-        LOG_ERROR("%s is not exist!\n", service_name.c_str());
+        LOG_ERROR("%s:%s:%d", __FILE__,__FUNCTION__,__LINE__);
+        LOG_ERROR("%s is not exist!", service_name.c_str());
         return;
     }
 
     auto mit = it->second.methodMap_.find(method_name);
     if (mit == it->second.methodMap_.end())
     {
-        LOG_ERROR("%s is not exist!\n", method_name.c_str());
+        LOG_ERROR("%s:%s:%d", __FILE__,__FUNCTION__,__LINE__);
+        LOG_ERROR("%s is not exist!", method_name.c_str());
         return;
     }
     // 获取service对象
@@ -108,7 +110,8 @@ void RpcProvider::onMessage(const TcpConnectionPtr &conn, Buffer *buffer, Timest
     google::protobuf::Message *request = service->GetRequestPrototype(method).New();
     if(!request->ParseFromString(args_str))
     {
-        LOG_ERROR("request parse error, content:%s\n", args_str.c_str());
+        LOG_ERROR("%s:%s:%d", __FILE__,__FUNCTION__,__LINE__);
+        LOG_ERROR("request parse error, content:%s", args_str.c_str());
         return;
     }
 
@@ -131,7 +134,8 @@ void RpcProvider::sendRpcResponse(const TcpConnectionPtr &conn, google::protobuf
     else
     {
         // 序列化失败
-        LOG_ERROR("serialize response_str error!\n");
+        LOG_ERROR("%s:%s:%d", __FILE__,__FUNCTION__,__LINE__);
+        LOG_ERROR("serialize response_str error!");
     }
     conn->shutdown();   // 短连接
 }
