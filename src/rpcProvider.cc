@@ -1,7 +1,7 @@
 #include <mymuduo11/base/logger.h>
 
 #include "rpcProvider.h"
-#include "myrpcApplication.h"
+#include "rpcApplication.h"
 #include "rpcheader.pb.h"
 
 // 这里是框架提供给外部使用的，可以发布rpc方法的函数接口
