@@ -16,7 +16,7 @@ public:
     }
     T Pop()
     {
-        std::lock_guard<std::mutex> lock(mutex_);
+        std::unique_lock<std::mutex> lock(mutex_);
         while(queue_.empty())
         {
             cv_.wait(lock);
