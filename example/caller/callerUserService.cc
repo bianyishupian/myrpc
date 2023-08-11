@@ -2,6 +2,7 @@
 #include "rpcApplication.h"
 #include "user.pb.h"
 #include "rpcChannel.h"
+#include "rpcController.h"
 
 int main(int argc, char **argv)
 {
@@ -30,16 +31,24 @@ int main(int argc, char **argv)
     registerReq.set_name("lisi");
     registerReq.set_pwd("123456789");
     myRPC::RegisterResponse registerResp;
-    stub.Register(nullptr, &registerReq, &registerResp, nullptr);
-    if (0 == registerResp.result().errcode())
+
+    MyrpcController controller;
+    stub.Register(&controller, &registerReq, &registerResp, nullptr);
+    if (controller.Failed())
     {
-        std::cout << "rpc Register response success:" << registerResp.success() << std::endl;
+        std::cout << controller.ErrorText() << std::endl;
     }
     else
     {
-        std::cout << "rpc Register response error : " << registerResp.result().errmsg() << std::endl;
+        if (0 == registerResp.result().errcode())
+        {
+            std::cout << "rpc Register response success:" << registerResp.success() << std::endl;
+        }
+        else
+        {
+            std::cout << "rpc Register response error : " << registerResp.result().errmsg() << std::endl;
+        }
     }
-
 
     return 0;
 }
