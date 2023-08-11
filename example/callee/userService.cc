@@ -1,8 +1,8 @@
 #include <iostream>
 #include <string>
-#include "../user.pb.h"
-#include "../../src/include/rpcProvider.h"
-#include "../../src/include/myrpcApplication.h"
+#include "user.pb.h"
+#include "rpcProvider.h"
+#include "rpcApplication.h"
 
 class UserService : public myRPC::UserServiceRpc
 {
