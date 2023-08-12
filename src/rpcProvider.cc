@@ -2,6 +2,7 @@
 #include "rpcApplication.h"
 #include "rpcheader.pb.h"
 #include "logger.h"
+#include "rpcZookeeper.h"
 
 // 这里是框架提供给外部使用的，可以发布rpc方法的函数接口
 void RpcProvider::NotifyService(google::protobuf::Service *service)
@@ -35,6 +36,22 @@ void RpcProvider::Run()
     server.setMessageCallback(std::bind(&RpcProvider::onMessage, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3));
     // 设置线程数量
     server.setThreadNum(4);
+
+    ZkClient zkc;
+    zkc.Start();
+    for(auto &sp : serviceMap_)
+    {
+        std::string service_path = "/" + sp.first;
+        zkc.Create(service_path.c_str(), nullptr, 0);
+        for(auto &mp : sp.second.methodMap_)
+        {
+            std::string method_path = service_path + "/" + mp.first;
+            char method_path_data[128] = {0};
+            sprintf(method_path_data, "%s:%d", ip.c_str(), port);
+            zkc.Create(method_path.c_str(), method_path_data, strlen(method_path_data), ZOO_EPHEMERAL);
+        }
+    }
+
 
     // server启动
     server.start();
