@@ -20,3 +20,5 @@ link_directories(${PROJECT_SOURCE_DIR}/lib)
 add_subdirectory(src)
 # example包含了rpc框架使用的示例代码
 add_subdirectory(example)
+# test包含项目的测试用例
+add_subdirectory(test)
